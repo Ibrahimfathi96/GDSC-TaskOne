@@ -6,10 +6,14 @@ class TextFieldWidget extends StatelessWidget {
   IconButton? iconSuffix;
   IconData iconPrefix;
   TextInputType inputFieldType;
-  bool obsecuredText = false;
+  bool isObscured = false;
+  String? Function(String?) validator;
+  TextEditingController controller;
 
   TextFieldWidget(
-      {required this.obsecuredText,
+      {required this.isObscured,
+      required this.validator,
+      required this.controller,
       @required this.iconSuffix,
       required this.inputFieldType,
       required this.iconPrefix,
@@ -21,7 +25,9 @@ class TextFieldWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30),
       child: TextFormField(
-        obscureText: obsecuredText,
+        controller: controller,
+        validator: validator,
+        obscureText: isObscured,
         keyboardType: inputFieldType,
         decoration: InputDecoration(
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),

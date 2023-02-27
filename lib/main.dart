@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_one/Screens/animated_list_screen.dart';
 import 'package:task_one/Screens/register_screen.dart';
 
 import 'Screens/login_screen.dart';
@@ -18,6 +19,7 @@ class TaskOneApplication extends StatelessWidget {
       routes: {
         LoginScreen.routeName: (_) => LoginScreen(),
         RegisterScreen.routeName: (_) => const RegisterScreen(),
+        AnimatedListScreen.routeName: (_) => AnimatedListScreen(),
       },
       //the main screen using "initial Route"
       initialRoute: LoginScreen.routeName,
